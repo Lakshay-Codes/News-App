@@ -85,12 +85,12 @@ export default class News extends Component {
         <div className="row">
           {this.state.articles.map((element) => {
             return (
-              <div className="col-md-4">
+              <div key={element.id} className="col-md-4">
                 <NewsItem
-                  title="my title"
-                  description="my desc"
-                  imageUrl="https://cdn.mos.cms.futurecdn.net/ZaPNyX5BVEtPwfu7CyXuUW-1200-80.jpg"
-                  newsUrl="https://www.imore.com/ipad/ipad-air/apple-just-obsoleted-two-of-its-most-iconic-monitors-and-ipads"
+                  title={element.title}
+                  description={element.description}
+                  imageUrl={element.urlToImage}
+                  newsUrl={element.url}
                 />
               </div>
             );
