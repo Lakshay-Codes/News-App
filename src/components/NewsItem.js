@@ -7,7 +7,7 @@ export default class NewsItem extends Component {
     return (
       <div className="my-3">
         <div className="card">
-          <span className="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style={{left : "90%",zIndex:1}}>
+          <span className="position-absolute badge rounded-pill bg-danger">
             {source.name}
           </span>
           <img
