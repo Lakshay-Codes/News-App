@@ -45,15 +45,18 @@ export default class News extends Component {
   };
   
   async updatePage() {
+    this.props.setProgress(0);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}&page=${this.state.page}`;
     this.setState({ loading: true });
     let data = await fetch(url);
+    this.props.setProgress(70);
     let ParsedData = await data.json();
     this.setState({
       articles: ParsedData.articles,
       totalResults: ParsedData.totalResults,
       loading: false
     });
+    this.props.setProgress(100);
   }
   async componentDidMount() {
     this.updatePage();
@@ -63,7 +66,6 @@ export default class News extends Component {
   }
 
   render() {
-    console.log(1);
     return (
       <>
         <h1 className="text-center" style={{ margin: "35px 0px" }}>
