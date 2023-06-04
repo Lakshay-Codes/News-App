@@ -75,8 +75,8 @@ export default class News extends Component {
           <InfiniteScroll
             dataLength={this.state.articles.length}
             next={this.fetchMoreData}
-            hasMore={this.state.articles.length!==this.state.totalResults}
-            loader={<Spinner />}
+            hasMore={this.state.articles.length<this.state.totalResults}
+            loader={(this.props.category==='general')? <h1> </h1> : <Spinner />}
           >
             <div className="container row">
               {this.state.articles.map((element) => {
